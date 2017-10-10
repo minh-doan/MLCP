@@ -61,9 +61,31 @@ Core requirement: Python and its machine learning libraries Scikit-learn
        
        * SQLite database .DB files (preferably, see note)    
     
-    **Note:**
+    **Note 1:**
     
-    The script at its current stage will need to be placed in a folder at the same level with the CellProfiler output folder, i.e. “CPOut”. 
+    To validate the result of classification, each object needs to be labelled with a class. In this example, the objects are automatically labelled according to the names of the immediate folders containing its images. In CellProfiler terminology, it's *Image_Metadata_folder*.
+    
+    For instance, a folder structure of a drug screen:
+
+    ```
+    └── Experiment_7817
+        └── Positive_control
+            └── B12_s1_w1.tif
+            └── B12_s1_w2.tif
+            └── B13_s1_w1.tif
+            └── B13_s1_w2.tif                                  
+        └── Treatment_1
+            └── A1_s1_w1.tif
+            └── A1_s1_w2.tif
+            └── A3_s1_w1.tif
+            └── A3_s1_w2.tif      
+    ```
+    
+    Here *Positive_control* and *Treatment_1* will be used as the labels for any identified objects from the images of wells "B" and "A", respectively. The regular expression rule used in CellProfiler pipeline will look for the prefix *"Experiment"* as in "Experiment_7817" of the parental folder. You can tune CellProfiler pipeline to fit your own use of metadata if needed.
+    
+    **Note 2:**
+    
+    The machine learning script at its current stage will need to be placed in a folder at the same level with the CellProfiler output folder, i.e. “CPOut”. 
     
     ```
     └── MLCP
