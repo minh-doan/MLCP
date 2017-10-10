@@ -6,14 +6,14 @@ This is a vignette of performing supvervised and unsupervised classification of 
 
 Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its machine learning libraries Scikit-learn
 
-1. Install Python (>=2.7.9 or >=3.4) from https://www.python.org/downloads/
+1. Install [Python](https://www.python.org/downloads/) (>=2.7.9 or >=3.4)
 
-    In case you already had older version of Python that does not include pip, and you do not wish to upgrade, please follow the instruction at: https://packaging.python.org/tutorials/installing-packages/
+    In case you already had older version of Python that does not include pip, and you do not wish to upgrade, please follow the instruction [here](https://packaging.python.org/tutorials/installing-packages/)
  
 1. Open a command line window
     
     In Linux/Mac OS, open the "Terminal".
-    In Windows, open the "cmd" (as administrator) here's how-to: https://www.howtogeek.com/235101/10-ways-to-open-the-command-prompt-in-windows-10/
+    In Windows, open the "cmd" (as administrator) here's [how-to](https://www.howtogeek.com/235101/10-ways-to-open-the-command-prompt-in-windows-10/)
 
 1. In Terminal/cmd, type :
     ``` r
@@ -45,15 +45,15 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
     ```
     If it opens an interface in your default web-browser, you’re ready!
 
-    If you have issue running jupyter, please visit [Jupyter website](https://jupyter.readthedocs.io/en/latest/install.html)
+    If you have issues running jupyter, please visit [Jupyter website](https://jupyter.readthedocs.io/en/latest/install.html)
 
-    If jupyter notebook is not available, the vignette can be used in command line (see later)
+    If jupyter notebook is not available, the vignette can still be used in command line (see **Use**)
     
 # Use
 
 1. Feature extraction by CellProfiler   
     
-    If starting from raw images input, you will first need to perform [CellProfiler](http://cellprofiler.org) analysis on those images.  In this vignette, you can use the example pipeline located at **CPpipeline**/*cellcycle.cppipe* to analyze the example images provided in folder **images**. Read [more](https://github.com/minh-doan/MLCP/tree/master/images) about this experiment.
+    Starting from raw images input, you will first need to perform [CellProfiler](http://cellprofiler.org) analysis on those images.  In this vignette, you can use the example pipeline located at **CPpipeline**/*cellcycle.cppipe* to analyze the example images provided in folder **images**. Read [more](https://github.com/minh-doan/MLCP/tree/master/images) about these images and the study.
     
     **Input of this step:** 
        
@@ -65,7 +65,7 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
     
     **Note 1:**
     
-    To validate the result of classification, each object needs to be labelled with a class. In this example, the objects are automatically labelled according to the names of the immediate folders containing its images. In CellProfiler terminology, it's *Image_Metadata_folder*.
+    To validate the result of classification, each object often needs to be labelled with a class name. In this example, the objects are automatically labelled according to the names of the immediate folders containing its images. In CellProfiler terminology, it's called *Image_Metadata_folder*.
     
     For instance, a folder structure of a drug screen:
 
@@ -83,7 +83,7 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
             └── A3_s1_w2.tif      
     ```
     
-    Here *Positive_control* and *Treatment_1* will be used as the labels for any identified objects from the images of wells "B" and "A", respectively. The regular expression rule used in CellProfiler pipeline will look for the prefix *"Experiment"* as in "Experiment_7817" of the parental folder. You can tune CellProfiler pipeline to fit your own use of metadata if needed.
+    Here *Positive_control* and *Treatment_1* will be used as the labels for any identified objects from the images of wells "B" and "A", respectively. The regular expression rule used in CellProfiler pipeline will look for the prefix *"Experiment"* as in "Experiment_7817" of the parental folder. You can tune CellProfiler pipeline to fit your own use of metadata.
     
     **Note 2:**
     
@@ -100,11 +100,11 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
     ```
     The script will also look for files named *DefaultDB_train.db* and *DefaultDB_test.db* , which are SQLite databases, inside **CPOut**. Please consider this if you need to change the name of the output folder, and name and type of CellProfiler output database. If you wish, you can change these path and names easily by editing the script itself using any text editor.
     
-    If you prefer to use .CSV output, please visit another vignette: https://github.com/holgerhennig/machine-learning-IFC
+    If you prefer to use .CSV outputs, please visit another [vignette](https://github.com/holgerhennig/machine-learning-IFC) of the same work.
     
 1. Feature selection
 
-    CellProfiler may extract large number of features. For classical machine learning methods, it is advisable to first remove the zero-variance features (same values for every objects) as well as redundant features (highly correlated features). This preprocessing step is demonstrated in the first part of **MachineLeaning**/*MLCP.ipynb* using tree-based feature selection method. You can easily modify this module to use any other feature selection methods.
+    CellProfiler may extract large number of features. For classical machine learning, it is advisable to first remove the zero-variance features (same values for every objects) as well as redundant features (highly correlated features). This preprocessing step is demonstrated in the first part of **MachineLeaning**/*MLCP.ipynb* using tree-based feature selection method. You can easily modify this module to use any other feature selection methods.
     
     **Input of this step:** 
        
@@ -138,11 +138,9 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
 
     <p align="center"><img src="docs/images/NaiveBayes_confusion_matrix.png" alt="Confusion matrix" width="600"/></p>
 
-    **Note :** In this task, there might be heavy computational tasks, depends on how large your data is. Please save your current works, free your computer CPU and memory before running the script.
+    **Note :** This task can be computationally heavy, depends on how large your data is. Please save your current works, free your computer CPU and memory before running the script.
 
-    To run the script (for step 2 and 3), please use:
-    
-    Jupyter notebook for **MachineLeaning**/*MLCP.ipynb* 
+    To run the script (for step 2 and 3), use Jupyter notebook for **MachineLeaning**/*MLCP.ipynb* 
 
     ``` r
     jupyter notebook
