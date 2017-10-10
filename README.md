@@ -4,7 +4,7 @@ This is a vignette of performing supvervised and unsupervised classification of 
 
 # Installation
 
-Core requirement: Python and its machine learning libraries Scikit-learn
+Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its machine learning libraries Scikit-learn
 
 1. Install Python (>=2.7.9 or >=3.4) from https://www.python.org/downloads/
 
@@ -45,8 +45,10 @@ Core requirement: Python and its machine learning libraries Scikit-learn
     ```
     If it opens an interface in your default web-browser, you’re ready!
 
-    If you have issue running jupyter, please visit: https://jupyter.readthedocs.io/en/latest/install.html
+    If you have issue running jupyter, please visit [Jupyter website](https://jupyter.readthedocs.io/en/latest/install.html)
 
+    If jupyter notebook is not available, the vignette can be used in command line (see later)
+    
 # Use
 
 1. Feature extraction by CellProfiler   
@@ -122,7 +124,7 @@ Core requirement: Python and its machine learning libraries Scikit-learn
 
     Preprocessed feature space can then be used to predict the cellular phenotypes, as demonstrated in the later part of **MachineLeaning**/*MLCP.ipynb*. 
     
-    **Note** that supervised classification typically requires ground-truth annotation. In this example, the cells are manually sorted into folders with names correspond to the phases of cell cycle. CellProfiler pipeline can be tuned to automatically collect the names of these folders as ground-truth labels of the cells.
+    **Note :** Supervised classification typically requires ground-truth annotation. In this example, the cells are manually sorted into folders with names correspond to the phases of cell cycle. CellProfiler pipeline can be tuned to automatically collect the names of these folders as ground-truth labels of the cells.
     
     **Input of this step:** 
     
@@ -136,7 +138,7 @@ Core requirement: Python and its machine learning libraries Scikit-learn
 
     <p align="center"><img src="docs/images/NaiveBayes_confusion_matrix.png" alt="Confusion matrix" width="600"/></p>
 
-    **Note** In this task, there might be heavy computational tasks, depends on how large your data is. Please save your current works, free your computer CPU and memory before running the script.
+    **Note :** In this task, there might be heavy computational tasks, depends on how large your data is. Please save your current works, free your computer CPU and memory before running the script.
 
     To run the script (for step 2 and 3), please use:
     
