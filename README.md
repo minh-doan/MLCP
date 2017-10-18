@@ -13,13 +13,10 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
 1. Open a command line window
     
     In Linux/Mac OS, open the "Terminal".
-    In Windows, open the "cmd" (as administrator) here's [how-to](https://www.howtogeek.com/235101/10-ways-to-open-the-command-prompt-in-windows-10/)
     
-       * Windows user may have to first navigate to:
+    In Windows, open the "cmd" (as administrator) here's [how-to](https://www.howtogeek.com/235101/10-ways-to-open-the-command-prompt-in-windows-10/). Windows user may also have to first navigate to:
        
-       ```
        cd C:\Users\YOUR_USER_NAME\AppData\Local\Programs\Python\Python36\Scripts
-       ```
 
 1. In Terminal/cmd, type :
     ``` r
