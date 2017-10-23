@@ -58,6 +58,15 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
 
     If jupyter notebook is not available, the vignette can still be used in command line (see **Use**)
     
+    **Note:**
+    
+    Windows user may need to add it into the %PATH variable. Here is a powershell script to do it. BE SURE TO ADD THE ";" before adding the new path.
+    
+    ```
+    $ [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\<username>\AppData\Roaming\Python\Python35\Scripts", [EnvironmentVariableTarget]::User)
+
+    ```
+    
 # Use
 
 1. Feature extraction by CellProfiler   
