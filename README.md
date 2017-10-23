@@ -41,7 +41,7 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
     pip3 install jupyter
     ```
     
-    **Note: ** 
+    **Note:** 
     
     Windows user may need to manually download numpy package from [this website](http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy)
     ```
