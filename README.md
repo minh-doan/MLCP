@@ -45,8 +45,8 @@ Core requirement: [CellProfiler](http://cellprofiler.org) 2.2+, Python and its m
     
     Windows user may need to manually download numpy package from [this website](http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy)
     ```
-    cd /YOUR_download_location/<package-name>.whl
-    pip3 install <package-name>.whl
+    cd C:\Users\YOUR_USER_NAME\AppData\Local\Programs\Python\Python36\Scripts
+    pip3 install /YOUR_download_location/<package-name>.whl
     ```
 1. Once done, test if you can use jupyter notebook. In Terminal or cmd, type:
     ``` r
