@@ -205,7 +205,7 @@ cols_objects = [column[0] for column in query_objects.description]
 objects = pandas.DataFrame.from_records(data = query_objects.fetchall(), columns = cols_objects)
 
 variables_object = [x for x in objects.columns.values if numpy.all([not z in x for z in not_wanted])]
-objects_train = pandas.DataFrame(objects, columns=[variables_object + ["ImageNumber"]])
+objects_train = objects.loc[: , variables_object + ["ImageNumber"]]
 print('Original data has shape (rows, columns)              : ', objects_train.shape)
 
 query_image = database_train.execute("SELECT * From Per_Image")
@@ -272,7 +272,7 @@ print('After feature selection, data has shape              : ', data_train.shap
 selected_features_names =list(data_train.columns.values)
 plot_rank_importance(data_train, numeric_labels, train_directory)
 
-numpy.savetxt( os.path.join(train_directory, 'after_feature_selection_data.txt' ), data_train, delimiter='\t')
+data_train.to_csv( os.path.join(train_directory, 'after_feature_selection_data.txt' ))
 
 #----- To be used as main data on http://projector.tensorflow.org -----#
 numpy.savetxt( os.path.join(train_directory, 'after_feature_selection_scaled_data.txt' ), scale(data_train), delimiter='\t')
@@ -297,7 +297,7 @@ selected_var_images_test = pandas.DataFrame(images_test, columns=variables_image
 
 
 #----- Apply feature selection rules learned from training data on test data -----#
-selected_var_objects_test = pandas.DataFrame(objects_test, columns=[selected_features_names + ["ImageNumber"]])
+selected_var_objects_test = objects_test.loc[: , selected_features_names + ["ImageNumber"]]
 
 
 #----- Remove any row that has NA -----#
@@ -315,7 +315,7 @@ data_test = selected_var_objects_test.drop([selected_var_objects_test.columns[-1
 print('After removing NA rows and feature selection, test data has shape : ', data_test.shape)
 
 
-numpy.savetxt( os.path.join(test_directory, 'after_feature_selection_testdata.txt' ), data_test, delimiter='\t')
+data_test.to_csv( os.path.join(test_directory, 'after_feature_selection_testdata.txt' ))
 #----- To be used as main data on http://projector.tensorflow.org -----#
 numpy.savetxt( os.path.join(test_directory, 'after_feature_selection_scaled_testdata.txt' ), scale(data_test), delimiter='\t')
 
