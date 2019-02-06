@@ -1,0 +1,20 @@
+{
+  "embeddings": [
+    {
+      "tensorName": "My tensor",
+      "tensorShape": [
+        1000,
+        50
+      ],
+      "tensorPath": "https://raw.githubusercontent.com/minh-doan/MLCP/tensorboard_projector/images/embedded_cells.csv",
+      "metadataPath": "https://raw.githubusercontent.com/minh-doan/MLCP/tensorboard_projector/images/metadata.tsv",
+      "sprite": {
+        "imagePath": "https://raw.githubusercontent.com/minh-doan/MLCP/tensorboard_projector/images/sprite.png",
+        "singleImageDim": [
+          48,
+          48
+        ]
+      }
+    }
+  ]
+}
